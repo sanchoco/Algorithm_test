@@ -13,6 +13,7 @@ for i in range(1, n): #arr을 dp테이블로 사용
 min_result = min(min(arr[n-1][0], arr[n-1][1]), arr[n-1][2])
 print(min_result)
 
+
 #과정
 ## 처음
 # 26 40 83

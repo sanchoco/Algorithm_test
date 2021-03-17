@@ -1,13 +1,8 @@
 # 백준 11866 요세푸스 문제 0
-
 from collections import deque
 
-
-
-queue = deque()
-
 n,k = map(int, input().split())
-
+queue = deque()
 for i in range(1, n + 1):
 	queue.append(i)
 

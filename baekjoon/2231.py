@@ -1,3 +1,4 @@
+# 백준 2231 분해합
 n = int(input())
 result = 0
 for num in range(n):

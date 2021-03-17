@@ -1,34 +1,32 @@
 # 백준 1753 최단경로
-import sys, heapq
+import sys
+from heapq import heappop, heappush
 
-INF = 999
-# 입력
-v, e = map(int, sys.stdin.readline().split())
-k = int(sys.stdin.readline())
-cost = [INF] * (v + 1)
-route = [[] for _ in range(v+1)]
-heap = []
+INF = float("inf")
 
-#실행
-def di(start):
-	cost[start] = 0
-	heapq.heappush(heap, (0, start))
-	while heap:
-		value, now = heapq.heappop(heap)
-		if cost[now] < value:
-			continue
-		for node_cost, next_node in route[now]:
-			if node_cost + value < cost[next_node]:
-				cost[next_node] = node_cost + value
-				heapq.heappush(heap, (node_cost + value, next_node))
+V, E = map(int, sys.stdin.readline().split())
+start = int(sys.stdin.readline())
+route = {}
+cost = [INF] * (V + 1)
+for _ in range(E):
+	u, v, w = map(int, sys.stdin.readline().split())
+	if u in route:
+		route[u] += [(v, w)]
+	else :
+		route[u] = [(v, w)]
 
+visit = []
+heappush(visit, (0,start))
+cost[start] = 0
+while visit:
+	value, node = heappop(visit)
+	if node in route:
+		for v, w in route[node]:
+			if cost[v] > value + w: # 이전 비용 > 경유 직전 비용 + 경유지에서 목적지의 비용
+				cost[v] = value + w # 탐색후 작은 값으로 업데이트
+				heappush(visit,(cost[v], v))
 
-for _ in range(e):
-	node, target, value = map(int, input().split())
-	route[node].append((target, value))
-
-# 출력
-for i in range(1,v + 1):
+for i in range(1, V + 1):
 	if cost[i] == INF:
 		print("INF")
 	else:

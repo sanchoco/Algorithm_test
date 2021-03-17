@@ -4,16 +4,16 @@ start = time.time()
 
 def queen(table, n, table_length):
 	global count
-	for i in range(table_length):
-		if check(table, n, i, table_length) == True:
-			if n == table_length - 1:
-				count += 1
+	for i in range(table_length): # 한 열에 놓을 수 있는 케이스
+		if check(table, n, i, table_length) == True: # 놓을 수 있다면
+			if n == table_length - 1: # 열의 마지막에 도착했다면
+				count += 1  # 카운트 +1하고 반복 break
 				break
-			table[n][i] = 1
-			dic[i] = 1
+			table[n][i] = 1 # 테이블에 퀸 놓고 아래에서 재귀 탐색
+			dic[i] = 1 # 해당 열에 놓았다고 표시하기
 			queen(table, n + 1, table_length)
-			table[n][i] = 0
-			dic[i] = 0
+			table[n][i] = 0 # 재귀 탐색이 끝났으므로 원래대로
+			dic[i] = 0 # 열에 놓았다는 표시 지우기
 
 # 테이블 체크 함수
 def check(table, n, now, table_length):

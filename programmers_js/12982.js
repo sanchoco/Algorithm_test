@@ -3,8 +3,9 @@
 
 function solution(d, budget) {
 	let answer = 0;
-	d.sort((a, b) => a - b)
 	let total = 0
+	d.sort((a, b) => a - b)
+	console.log(d)
 	for (let element of d) {
 		total += element
 		if (total <= budget)
@@ -12,9 +13,8 @@ function solution(d, budget) {
 		else
 			break;
 	}
-    return answer;
+	return answer;
 }
-
-const d = [1, 3, 2, 5, 4]
+const d = [5, 3, 2, 1, 4]
 const budget = 9
 console.log(solution(d, budget))

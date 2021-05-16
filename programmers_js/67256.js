@@ -43,7 +43,7 @@ function solution(numbers, hand) {
 			} else if (distance(num, last_L) > distance(num, last_R)) {
 				answer += 'R'
 				last_R = num
-			} else {
+			} else { //
 				if (hand === 'left') {
 					answer += 'L'
 					last_L = num

@@ -4,8 +4,6 @@
 function solution(participant, completion) {
 	participant.sort()
 	completion.sort()
-	console.log(participant)
-	console.log(completion)
 	while (participant.length) {
 		let p = participant.pop()
 		let c = completion.pop()

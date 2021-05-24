@@ -7,7 +7,7 @@ function solution(N, stages) {
 		fail[stage] = (fail[stage] || 0) + 1; // 실패인원 누적
 	})
 	let len = stages.length;
-	let temp = []
+	let temp = [] // 스테이지별 실패율 저장
 	for (let stage = 1; stage <= N; stage++){
 		let success = 0;
 		if (!fail[stage]) {
@@ -19,7 +19,6 @@ function solution(N, stages) {
 		len -= fail[stage]
 	}
 	temp.sort((a, b) => b[1] - a[1]); // 실패율 정렬
-
 	return temp.map((value) => value[0]);
 }
 

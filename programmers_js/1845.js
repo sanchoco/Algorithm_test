@@ -2,9 +2,7 @@
 // 폰켓몬
 
 function solution(nums) {
-	let arr = [...(new Set(nums))];
-	let max = Math.floor(nums.length / 2);
-	return max >= arr.length ? arr.length : max;
+	return Math.min(nums.length / 2, [...new Set(nums)].length);
 }
 
 console.log(solution([3,1,2,3]))

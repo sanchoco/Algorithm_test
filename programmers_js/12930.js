@@ -2,7 +2,7 @@
 // 이상한 문자 만들기
 
 function solution(s) {
-	let even = 0
+	let even = 0;
 	return s.split('').map((c) => {
 		if (c == ' ') {
 			even = 0;
@@ -10,7 +10,9 @@ function solution(s) {
 		}
 		else {
 			even += 1;
-			return (even % 2 == 1) ? c.toUpperCase() : c.toLowerCase()
+			return (even % 2 == 1) ? c.toUpperCase() : c.toLowerCase();
 		}
-	}).join('')
+	}).join('');
 }
+
+console.log(solution("try hello world"));

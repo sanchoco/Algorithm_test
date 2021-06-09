@@ -2,18 +2,14 @@
 // 타겟 넘버
 
 function recurive(numbers, target, depth, total) {
-	if (numbers.length === depth) {
-		if (target === total)
-			return 1;
-		else
-			return 0;
-	}
-	let case1 = recurive(numbers, target, depth + 1, total + numbers[depth])
-	let case2 = recurive(numbers, target, depth + 1, total - numbers[depth])
-	return case1 + case2;
+	if (numbers.length === depth)
+		return (target === total) ? 1 : 0;
+	return recurive(numbers, target, depth + 1, total + numbers[depth])
+		+ recurive(numbers, target, depth + 1, total - numbers[depth])
 }
 
 function solution(numbers, target) {
-	let answer = recurive(numbers, target, 0, 0);
-    return answer;
+	return recurive(numbers, target, 0, 0);
 }
+
+console.log (solution([1, 1, 1, 1, 1], 3))
